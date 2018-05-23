@@ -16,6 +16,28 @@ public class CalculatorTest {
         assertThat(result, is(expected));
 
     }
+    public void whenTwoMinusOne() {
+        Calculator calc = new Calculator();
+        calc.sub(2, 1);
+        double result = calc.getResult();
+        double expected = 1;
+        assertThat(result, is(expected));
 
+    }
+    public void whenMaltTwoTwo() {
+        Calculator calc = new Calculator();
+        calc.mult(2, 2);
+        double result = calc.getResult();
+        double expected = 4;
+        assertThat(result, is(expected));
 
+    }
+    public void whenDivFourToTwo() {
+        Calculator calc = new Calculator();
+        calc.div(4, 2);
+        double result = calc.getResult();
+        double expected = 2;
+        assertThat(result, is(expected));
+
+    }
 }
