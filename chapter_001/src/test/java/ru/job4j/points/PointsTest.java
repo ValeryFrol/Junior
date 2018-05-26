@@ -10,7 +10,8 @@ public class PointsTest {
 
     @Test
     public void pointsTest() {
-        Points a = new Points(1, 1);
+        Points a;
+        a = new Points(1, 1);
         Points b = new Points(4, 5);
         a.distanceTo(b);
         double result = a.getLength();
