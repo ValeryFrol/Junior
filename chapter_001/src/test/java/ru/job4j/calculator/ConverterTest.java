@@ -7,40 +7,42 @@ import static org.junit.Assert.assertThat;
 
 
 public class ConverterTest {
-    double sumRub = 100;
-    double rate = 60;
+    double sum = 100;
+
 
     @Test
-
     public void convertRubToUsdTest() {
         Converter convert = new Converter();
-        convert.convertRubToUsd(sumRub);
+        convert.convertRubToUsd(sum);
         double result = convert.getResult();
-        double expected = sumRub / rate;
+        double expected = sum / 60;
         assertThat(result, is(expected));
     }
 
+    @Test
     public void convertRubToEurTest() {
         Converter convert = new Converter();
-        convert.convertRubToEur(sumRub);
+        convert.convertRubToEur(sum);
         double result = convert.getResult();
-        double expected = sumRub / rate;
+        double expected = sum / 70;
         assertThat(result, is(expected));
     }
 
+    @Test
     public void convertUsdToRubTest() {
         Converter convert = new Converter();
-        convert.convertUsdToRub(sumRub);
+        convert.convertUsdToRub(sum);
         double result = convert.getResult();
-        double expected = sumRub / rate;
+        double expected = sum * 60;
         assertThat(result, is(expected));
     }
 
+    @Test
     public void convertEurToRubTest() {
         Converter convert = new Converter();
-        convert.convertEurToRub(sumRub);
+        convert.convertEurToRub(sum);
         double result = convert.getResult();
-        double expected = sumRub / rate;
+        double expected = sum * 70;
         assertThat(result, is(expected));
     }
 

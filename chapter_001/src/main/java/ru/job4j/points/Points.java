@@ -15,9 +15,8 @@ public class Points {
     }
 
     public void distanceTo(Points that) {
-        Points a = this;
-        Points b = that;
-        this.distance = sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
+
+        this.distance = sqrt(pow(this.x - that.x, 2) + pow(this.y - that.y, 2));
 
 
     }

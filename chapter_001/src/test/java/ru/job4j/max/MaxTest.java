@@ -16,7 +16,7 @@ public class MaxTest {
 
 
     }
-
+    @Test
     public void maxOfThreeTest() {
         Max maximum = new Max();
         int result = maximum.maxOfThree(1, 2, 3);
