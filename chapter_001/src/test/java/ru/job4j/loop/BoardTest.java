@@ -16,4 +16,12 @@ public class BoardTest {
         // String.format  - возвращает строку и ее можно сохранить в переменную для дальнейшего использования
         // System.out.printf("X X%s X %sX X%s", sep, sep, sep);
     }
+
+    @Test
+    public void when2x2() {
+        Board board = new Board();
+        String result = board.paint(2, 2);
+        String sep = System.lineSeparator();
+        assertThat(result, is(String.format("X %s X%s", sep, sep)));
+    }
 }

@@ -31,4 +31,17 @@ public class Paint {
         }
         return screen.toString();
     }
+    public String leftTriangle(int height){
+        int width = height;
+        StringBuilder screen = new StringBuilder();
+        String sep = System.lineSeparator();
+        for(int i = 0;i<height;i++){
+            for(int j=0;j<width;j++){
+
+            }
+        }
+
+
+
+    }
 }
