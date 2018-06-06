@@ -23,9 +23,50 @@ public class PyramideTest {
                         .toString()
                 )
         );
-
-
     }
 
+    @Test
+    public void pyramideLeftTest() {
+        Paint paint = new Paint();
+        String result = paint.leftTriangle(4);
+        System.out.println(result);
+        assertThat(result, is(
+                new StringJoiner(System.lineSeparator(), "", System.lineSeparator())//аналогичен StringBuilder, но удобнее
+                        .add("   ^")
+                        .add("  ^^")
+                        .add(" ^^^")
+                        .add("^^^^")
+                        .toString()
+                )
+        );
+    }
 
+    @Test
+    public void pyramideTest() {
+        Paint paint = new Paint();
+        String result = paint.Pyramide(4);
+        System.out.println(result);
+        assertThat(result, is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                        .add("   ^   ")
+                        .add("  ^^^  ")
+                        .add(" ^^^^^ ")
+                        .add("^^^^^^^")
+                        .toString()
+                )
+        );
+    }
+    @Test
+    public void pyramideTest2() {
+        Paint paint = new Paint();
+        String result = paint.Pyramide(2);
+        System.out.println(result);
+        assertThat(result, is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                        .add(" ^ ")
+                        .add("^^^")
+                        .toString()
+                )
+        );
+    }
 }
+
+
