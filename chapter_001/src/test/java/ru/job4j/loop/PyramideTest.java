@@ -44,7 +44,7 @@ public class PyramideTest {
     @Test
     public void pyramideTest() {
         Paint paint = new Paint();
-        String result = paint.Pyramide(4);
+        String result = paint.pyramide(4);
         System.out.println(result);
         assertThat(result, is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                         .add("   ^   ")
@@ -58,7 +58,7 @@ public class PyramideTest {
     @Test
     public void pyramideTest2() {
         Paint paint = new Paint();
-        String result = paint.Pyramide(2);
+        String result = paint.pyramide(2);
         System.out.println(result);
         assertThat(result, is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                         .add(" ^ ")

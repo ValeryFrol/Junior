@@ -69,10 +69,10 @@ public class Tracker {
     }
 
     public void findAll() {
-        for (Item element : items) {
-            System.out.println(element.getiD());
-            System.out.println(element.getName());
-            System.out.println(element.getDescription());
+        for (int i=0;i<items.length;i++) {
+            System.out.println(items[i].getiD());
+            System.out.println(items[i].getName());
+            System.out.println(items[i].getDescription());
         }
     }
 

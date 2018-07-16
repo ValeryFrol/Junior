@@ -115,6 +115,7 @@ public class StartUI {
         Item item = new Item(name, this.tracker.generateId(), description);
         this.tracker.add(item);
         System.out.println("---------Новая заявка с id: " + item.getiD() + "--------");
+        System.out.println(item.getiD()+" "+item.getName()+" "+item.getDescription());
 
     }
 
@@ -126,6 +127,7 @@ public class StartUI {
      */
     public static void main(String[] args) throws IOException {
         new StartUI(new Tracker(), new ConsoleInput()).init();
+
 
     }
 
