@@ -1,5 +1,7 @@
 package tracker;
 
+import java.util.Optional;
+
 public class Item {
     private String name;
     private String iD;
@@ -8,6 +10,11 @@ public class Item {
     public Item(String name, String iD, String description) {
         this.name = name;
         this.iD = iD;
+        this.description = description;
+    }
+
+    public Item(String name, String description) {
+        this.name = name;
         this.description = description;
     }
 

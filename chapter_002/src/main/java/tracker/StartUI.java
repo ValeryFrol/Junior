@@ -1,10 +1,12 @@
 package tracker;
 
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * @version 1.0
  */
+
 public class StartUI {
 
     /**
@@ -43,25 +45,19 @@ public class StartUI {
     /**
      * Получение данных от пользователя
      */
-    private final ConsoleInput input;
+    private final Input input;
 
 
-    /**
-     * Конструктор, инициализирующий поля
-     *
-     * @param tracker хранилище заявок
-     * @param input   ввод с клавиатуры
-     */
-    public StartUI(Tracker tracker, ConsoleInput input) {
-        this.tracker = tracker;
+    public StartUI(Input input, Tracker tracker) {
         this.input = input;
+        this.tracker = tracker;
     }
 
 
     /**
      * Основной цикл программы
      */
-    public void init() throws IOException {
+    public void init() {
         boolean exit = false;
         while (!exit) {
             this.showMenu();
@@ -74,7 +70,10 @@ public class StartUI {
                     this.tracker.findAll();
                     break;
                 case EDIT:
-                    this.tracker.replace();
+                    String id = input.ask("Введите ID заявки, которую хотите заменить");
+                    String name = input.ask("Введите новое имя заявки");
+                    String description = input.ask("Введите новое описание заявки");
+                    this.tracker.replace(id, name, description);
                     break;
                 case DELETE:
                     this.tracker.delete();
@@ -108,28 +107,36 @@ public class StartUI {
         System.out.println("Select:");
     }
 
-    private void createItem() throws IOException {
+    private void createItem() {
+
         System.out.println("-------Добавление новой заявки-------");
         String name = this.input.ask("Введите имя заявки:");
         String description = this.input.ask("Введите описание заявки:");
         Item item = new Item(name, this.tracker.generateId(), description);
         this.tracker.add(item);
         System.out.println("---------Новая заявка с id: " + item.getiD() + "--------");
-        System.out.println(item.getiD()+" "+item.getName()+" "+item.getDescription());
+        System.out.println(item.getiD() + " " + item.getName() + " " + item.getDescription());
 
     }
 
+    public void inputData() {
+
+        String name = input.ask("Enter the task's name");
+        tracker.add(new Item(name, "Description"));
+        for (Item item : tracker.getAll()) {
+            System.out.println(item.getName());
+        }
+    }
 
     /**
      * Запуск программы
      *
      * @param args
      */
-    public static void main(String[] args) throws IOException {
-        new StartUI(new Tracker(), new ConsoleInput()).init();
-
-
+    public static void main(String[] args) {
+        new StartUI(new ConsoleInput(), new Tracker()).init();
     }
-
-
 }
+
+
+
