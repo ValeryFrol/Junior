@@ -13,9 +13,7 @@ public class Tracker {
      * Указатель на элемент массива
      */
     private int position = 0;
-
-
-    /**
+        /**
      * Метод добавления новой заявки
      *
      * @param item новая заявка
@@ -51,8 +49,7 @@ public class Tracker {
 
     }
 
-    public void delete() {
-        String id = ci.ask("Введите ID заявки, которую хотите удалить");
+    public void delete(String id) {
 
         for (int j = 0; j < 100; j++) {
             if (this.items[j].getiD().equals(id)) {
@@ -73,8 +70,7 @@ public class Tracker {
         }
     }
 
-    public Item findByName() {
-        String name = ci.ask("Введите название заявки, которую вы хотите найти");
+    public Item findByName(String name) {
         for (int j = 0; j < position; j++) {
             if (this.items[j].getName().equals(name)) {
                 return this.items[j];
@@ -83,8 +79,7 @@ public class Tracker {
         return null;
     }
 
-    public Item findByID() {
-        String id = ci.ask("Введите ID заявки, которую вы хотите найти");
+    public Item findByID(String id) {
         for (int j = 0; j < position; j++) {
             if (this.items[j] != null) {
                 if (this.items[j].getiD().equals(id)) {
@@ -95,7 +90,7 @@ public class Tracker {
         return null;
     }
 
-    public Item findByID(String id) {
+    /*public Item findByID(String id) {
         //   String id = ci.ask("Введите ID заявки, которую вы хотите найти");
         for (int j = 0; j < position; j++) {
             if (this.items[j] != null) {
@@ -105,12 +100,11 @@ public class Tracker {
             }
         }
         return null;
-    }
+    }*/
 
     public Item[] getAll() {
         return Arrays.copyOf(items, position);
     }
-
 
 
 }

@@ -76,13 +76,16 @@ public class StartUI {
                     this.tracker.replace(id, name, description);
                     break;
                 case DELETE:
-                    this.tracker.delete();
+                    id = input.ask("Введите id заявки, которую хотите удалить");
+                    this.tracker.delete(id);
                     break;
                 case FINDID:
-                    this.tracker.findByID();
+                    id = input.ask("Введите ID заявки, которую вы хотите найти");
+                    this.tracker.findByID(id);
                     break;
                 case FINDNAME:
-                    this.tracker.findByName();
+                    name = input.ask("Введите название заявки, которую вы хотите найти");
+                    this.tracker.findByName(name);
                     break;
                 case EXIT:
                     exit = true;
