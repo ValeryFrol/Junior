@@ -1,7 +1,11 @@
 package flowers;
 
 public class Roses extends Flowers {
-    //price = 100;
-    //color = "red";
+
+    public Roses(String color,int price, String name){
+        this.color = color;
+        this.price = price;
+        this.name = name;
+    }
 
 }

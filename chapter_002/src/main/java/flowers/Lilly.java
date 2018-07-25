@@ -1,6 +1,12 @@
 package flowers;
 
 public class Lilly extends Flowers {
-    //price = 200;
-    //color = "white";
+
+public Lilly(String color,int price,String name){
+    this.color = color;
+    this.price = price;
+    this.name = name;
+}
+
+
 }
