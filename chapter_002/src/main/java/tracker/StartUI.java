@@ -1,6 +1,9 @@
 package tracker;
 
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -57,7 +60,7 @@ public class StartUI {
     /**
      * Основной цикл программы
      */
-    public void init() {
+   /* public void init() {
         boolean exit = false;
         while (!exit) {
             this.showMenu();
@@ -92,25 +95,29 @@ public class StartUI {
                     break;
                 default:
                     System.out.println("Введите верный пункт из меню");
-            }
+            }*//*
 
 
         }
+    }*/
+    public void init() {
+        MenuTracker menu = new MenuTracker(this.input,this.tracker);
+        List<Integer> range = new ArrayList<>();
+        menu.fillActions();
+        for (int i = 0; i <menu.getLength() ; i++) {
+            range.add(i);
+        }
+
+        do{
+            menu.show();//выводитmn
+            menu.select(input.ask("select:"));
+        } while("y".equals(this.input.ask("Exit?(y)")));
+
     }
 
-    private void showMenu() {
-        System.out.println("------------Options-------------");
-        System.out.println("Press 0 to add a new item");
-        System.out.println("Press 1 to show all items");
-        System.out.println("Press 2 to edit an item");
-        System.out.println("Press 3 to delete an item");
-        System.out.println("Press 4 to find an item by ID");
-        System.out.println("Press 5 to find an item by name");
-        System.out.println("Press 6 to exit the program");
-        System.out.println("Select:");
-    }
 
-    private void createItem() {
+
+    /*private void createItem() {
 
         System.out.println("-------Добавление новой заявки-------");
         String name = this.input.ask("Введите имя заявки:");
@@ -121,15 +128,15 @@ public class StartUI {
         System.out.println(item.getiD() + " " + item.getName() + " " + item.getDescription());
 
     }
-
-    public void inputData() {
+*/
+    /*public void inputData() {
 
         String name = input.ask("Enter the task's name");
         tracker.add(new Item(name, "Description"));
         for (Item item : tracker.getAll()) {
             System.out.println(item.getName());
         }
-    }
+    }*/
 
     /**
      * Запуск программы
@@ -138,6 +145,7 @@ public class StartUI {
      */
     public static void main(String[] args) {
         new StartUI(new ConsoleInput(), new Tracker()).init();
+
     }
 }
 
