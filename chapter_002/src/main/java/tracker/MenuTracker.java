@@ -275,6 +275,7 @@ public class MenuTracker {
         public void select(String key) {
             this.actions.get(Integer.parseInt(key)).execute(this.input, this.tracker);
         }
+
         public void show(){
             for (UserAction action:this.actions
                  ) {

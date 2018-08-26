@@ -3,6 +3,7 @@ package tracker;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,7 +50,7 @@ public class StartUI {
      * Получение данных от пользователя
      */
     private final Input input;
-
+    private final ValidateInput vInput = new ValidateInput();
 
     public StartUI(Input input, Tracker tracker) {
         this.input = input;
@@ -101,17 +102,17 @@ public class StartUI {
         }
     }*/
     public void init() {
-        MenuTracker menu = new MenuTracker(this.input,this.tracker);
-        List<Integer> range = new ArrayList<>();
+        MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        int[] range = new int[menu.getLength()];
         menu.fillActions();
-        for (int i = 0; i <menu.getLength() ; i++) {
-            range.add(i);
+        for (int i = 0; i < menu.getLength(); i++) {
+            Arrays.fill(range,i);
         }
 
-        do{
+        do {
             menu.show();//выводитmn
-            menu.select(input.ask("select:"));
-        } while("y".equals(this.input.ask("Exit?(y)")));
+            menu.select(Integer.toString(vInput.ask("select:",range)));
+        } while ("y".equals(this.input.ask("Exit?(y)")));
 
     }
 
