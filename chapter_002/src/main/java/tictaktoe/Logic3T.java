@@ -9,48 +9,49 @@ public class Logic3T {
     }
 
     public boolean isWinnerX() {
-        boolean result = false;
-        for (int i = 0; i < this.table.length; i++) {
+        for (int j = 0; j < this.table.length; j++) {
             int countV = 0;
-            int countH = 0;
-            for (int j = 0; j < this.table.length; j++) {
-                if (table[i][j].hasMarkX() == false) countV = +1;
-                if (table[i + j][i].hasMarkX() == false) countH = +1;
-                if (countV == 3 || countH == 3) {
-                    result = true;
-                    break;
-                }
+            for (int i = 0; i < this.table.length; i++) {
+                if (table[i][j].hasMarkX() == true) countV = countV + 1;
+                if (countV == 3) return true;
             }
         }
-        return result;
+        for (int i = 0; i < this.table.length; i++) {
+            int countH = 0;
+            for (int j = 0; j < this.table.length; j++) {
+                if (table[i][j].hasMarkX() == true) countH = countH + 1;
+                if (countH == 3) return true;
+            }
+        }
+        return false;
     }
 
     public boolean isWinnerO() {
-        boolean result = false;
-        for (int i = 0; i < this.table.length; i++) {
+       for (int j = 0; j < this.table.length; j++) {
             int countV = 0;
-            int countH = 0;
-            for (int j = 0; j < this.table.length; j++) {
-                if (table[i][j].hasMarkO() == true) countV = +1;
-                if (table[i + j][i].hasMarkO() == true) countH = +1;
-                if (countV == 3 || countH == 3) {
-                    result = true;
-                    break;
-                }
+            for (int i = 0; i < this.table.length; i++) {
+                if (table[i][j].hasMarkO() == true) countV = countV + 1;
+                if (countV == 3) return true;
             }
         }
-        return result;
+        for (int i = 0; i < this.table.length; i++) {
+            int countH = 0;
+            for (int j = 0; j < this.table.length; j++) {
+                if (table[i][j].hasMarkO() == true) countH = countH + 1;
+                if (countH == 3) return true;
+            }
+        }
+        return false;
     }
 
     public boolean hasGap() {
         boolean result = false;
         for (int i = 0; i < this.table.length; i++) {
             for (int j = 0; j < this.table.length; j++) {
-                if (table[i][j].hasMarkO() != true && table[i][j].hasMarkX() != false) result = true;
+                if (table[i][j].hasMarkO() != true && table[i][j].hasMarkX() != true) result = true;
             }
         }
         return result;
     }
 }
-
 

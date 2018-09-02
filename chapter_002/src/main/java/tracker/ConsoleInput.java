@@ -8,17 +8,20 @@ import java.util.List;
 public class ConsoleInput implements Input {
 
     public Integer ask(String question, int[] range) throws MenuOutException {
+        int key = Integer.valueOf(this.ask(question));
         int result = 0;
-        try {
-            System.out.println(question);
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-            result = br.read();
-        } catch (Exception e) {
-            System.out.println("Error");
+        boolean exist = false;
+        for (int i = 0; i < range.length; i++) {
+            if (key == range[i]) {
+                exist = true;
+                break;
+            }
         }
+        if (!exist) throw new MenuOutException("Неверный пункт меню");
         return result;
     }
-    public String ask(String question)  {
+
+    public String ask(String question) {
         String result = "empty";
         try {
             System.out.println(question);

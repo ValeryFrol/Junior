@@ -49,9 +49,9 @@ public class StartUI {
     /**
      * Получение данных от пользователя
      */
-    private final Input input;
-    private final ValidateInput vInput = new ValidateInput();
 
+    //private final ValidateInput vInput = new ValidateInput(new ConsoleInput());
+    private final Input input;
     public StartUI(Input input, Tracker tracker) {
         this.input = input;
         this.tracker = tracker;
@@ -103,16 +103,16 @@ public class StartUI {
     }*/
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
-        int[] range = new int[menu.getLength()];
         menu.fillActions();
+        int[] range = new int[menu.getLength()];
         for (int i = 0; i < menu.getLength(); i++) {
-            Arrays.fill(range,i);
+            range[i]=i;
         }
 
         do {
             menu.show();//выводитmn
-            menu.select(Integer.toString(vInput.ask("select:",range)));
-        } while ("y".equals(this.input.ask("Exit?(y)")));
+            menu.select(Integer.toString(input.ask("select:",range)));
+        } while (!"y".equals(this.input.ask("Continue?(y)")));
 
     }
 
@@ -145,7 +145,7 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(new ConsoleInput()),new Tracker()).init();
 
     }
 }
