@@ -104,6 +104,23 @@ public class StartUI {
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
+        UserAction deleteAction = new UserAction() {
+            @Override
+            public String key() {
+                return "7";
+            }
+
+            @Override
+            public void execute(Input input, Tracker tracker) {
+                    //todo
+            }
+
+            @Override
+            public String info() {
+                return "delete all";
+            }
+        };
+        menu.addAction(deleteAction);
         int[] range = new int[menu.getLength()];
         for (int i = 0; i < menu.getLength(); i++) {
             range[i]=i;

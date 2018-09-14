@@ -9,7 +9,7 @@ public class ConsoleInput implements Input {
 
     public Integer ask(String question, int[] range) throws MenuOutException {
         int key = Integer.valueOf(this.ask(question));
-        int result = 0;
+
         boolean exist = false;
         for (int i = 0; i < range.length; i++) {
             if (key == range[i]) {
@@ -18,7 +18,7 @@ public class ConsoleInput implements Input {
             }
         }
         if (!exist) throw new MenuOutException("Неверный пункт меню");
-        return result;
+        return key;
     }
 
     public String ask(String question) {
