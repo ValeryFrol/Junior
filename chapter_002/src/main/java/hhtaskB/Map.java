@@ -90,10 +90,10 @@ public class Map {
 
     public static void main(String[] args) {
         char[][] map = {{'.', '.', 'o', '.', '.', '.'},
-                {'.', '.', '.', '.', '.', '.'},
+                {'.', '.', '.', 'o', '.', '.'},
                 {'.', 'o', '.', '.', '.', '.'},
-                {'.', '.', '.', '.', '.', '.'}};
-        System.out.println(horizontalCheck(map, 4, 6, 2));
+                {'.', '.', '.', 'o', '.', '.'}};
+        System.out.println(horizontalCheck(map, 4, 6, 4));
 
 
     }

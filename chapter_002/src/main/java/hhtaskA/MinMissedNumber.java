@@ -32,6 +32,4 @@ public class MinMissedNumber {
         Collections.sort(missed);
         System.out.println(missed.get(0));
     }
-
-
 }

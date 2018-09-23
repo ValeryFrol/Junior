@@ -3,13 +3,13 @@ package demoCollection;
 import java.util.*;
 
 public class DemoMain {
-    public static void main(String[] args) {
+ /*   public static void main(String[] args) {
 //        Queue<Customer> queue = new CircularArrayQueue<>(100);
 //        queue.add(new Customer("Ivan"));
 //        Queue<Customer> queue1 = new LinkedListQueue<>();
 //        queue1.add(new Customer("Ivan"));
 //        AbstractQueue
-        Collection<String> c = ...;
+      //  Collection<String> c = ...;
         Iterator<String> iter = c.iterator();
         while(iter.hasNext()){
             System.out.println(iter.next());
@@ -23,7 +23,7 @@ public class DemoMain {
         }
 
         //iter.forEachRemaining(element -> сделать что-то с элементом);
-        ListIterator
+        //ListIterator
     }
     //найти число ближайшее к 10
    public static <E> boolean contains(Collection<E> collection,Object obj ){
@@ -32,5 +32,5 @@ public class DemoMain {
                 return true;
         }
         return false;
-    }
+    }*/
 }
