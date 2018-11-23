@@ -3,7 +3,7 @@ package soloTasks;
 import java.util.TreeSet;
 
 public class BinaryTree {
-    private int numberOfLevels;
+  /*  private int numberOfLevels;
 
     private class Node {
         int value;
@@ -33,6 +33,31 @@ public class BinaryTree {
             }
 
         }
+    }*/
+
+  int value;
+  BinaryTree left;
+  BinaryTree right;
+  public BinaryTree(int value, BinaryTree left, BinaryTree right){
+      this.value=value;
+      this.left=left;
+      this.right=right;
+  }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree(3,new BinaryTree(5,null,null),
+                                            new BinaryTree(3,null,null));
     }
+
+
+
+
+
+
+
+
+
+
+
 
 }

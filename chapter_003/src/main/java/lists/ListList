@@ -1,0 +1,21 @@
+package lists;
+
+import java.util.ArrayList;
+
+public class ListList {
+    String id;
+
+    ArrayList<String> items = new ArrayList<>();
+      void add(String item){
+        items.add(item);
+    }
+    void remove (String item){
+        items.remove(item);
+
+    }
+    void change(String oldItem, String newItem){
+        items.set(items.indexOf(oldItem),newItem);
+    }
+
+
+}
